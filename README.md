@@ -1,6 +1,6 @@
 # **DevBrute - A Password Brute Forcer**
 
-### VERSION 1.0
+### VERSION 0.1
 
 ## Introduction
 
@@ -13,26 +13,24 @@ The installation of this tool is easy and you can install this tool in just thre
 
 ### 1. CLONE THE REPOSITORY
 ```
-	git clone https://github.com/shivamksharma/DevBrute.git
+git clone https://github.com/shivamksharma/DevBrute.git
 ```
 
 ### 2. INSTALL THE REQUIREMENTS
 ```
-	pip3 install -r setup.py
+pip3 install -r setup.py
 
-	//If you don't have pip3 installed on your system then install it first by typing
-
-	sudo apt-get install python3-pip
-
+#In Case `pip3` is unavailable on your system then install it first by typing :
+sudo apt-get install python3-pip
 ```
 
 ### 3. RUN DEVBRUTE
 ```
-	python3 devbrute.py -s -username -w
+python3 devbrute.py -s -username -w
 
-	-s : WEBSITE's URL
-	-username : USERNAME
-	-w : Wordlist
+-s : WEBSITE's URL
+-username : USERNAME
+-w : Wordlist
 ```
 
 ### FIXES
@@ -40,4 +38,4 @@ The installation of this tool is easy and you can install this tool in just thre
 	- Fixed Website URLS Error
 	- Fixed Wordlist Issue
 
-> This project is no longer in development. If You want to contribute to this project then feel free to contribute to it by Sharing or Adding your code.
+> This project is no longer in development. If You want to contribute to this project then feel free to contribute to it by implementations.
