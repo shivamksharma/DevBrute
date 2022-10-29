@@ -20,7 +20,7 @@ git clone https://github.com/shivamksharma/DevBrute.git
 ```
 pip3 install -r setup.py
 
-#In Case `pip3` is unavailable on your system then install it first by typing :
+# In Case, pip3 isn't installed on your system then install it first by typing :
 sudo apt-get install python3-pip
 ```
 
