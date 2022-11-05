@@ -26,7 +26,7 @@ sudo apt-get install python3-pip
 
 ### 3. RUN DEVBRUTE
 ```
-python3 devbrute.py -s -username -w
+python3 devbrute.py -s -username -w /usr/share/wordlists/passwords.txt
 
 -s : WEBSITE's URL
 -username : USERNAME
@@ -39,3 +39,5 @@ python3 devbrute.py -s -username -w
 	- Fixed Wordlist Issue
 
 > **This project is no longer in development. If You want to contribute to this project then feel free to contribute to it by implementations.**
+
+
