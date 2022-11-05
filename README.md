@@ -6,7 +6,6 @@
 
 DevBrute is my casual and random project in Infomation Security. The whole project is in the Python Programming Language which is built for Brute Forcing the Passwords of Web Applications. Nowadays, Brute Forcing on any Web Applications is like wasting time because most web apps uses plethora of techniques to prevent brute forcing on their websites. You can notice a common technique on most websites which is **Locking Account**. You might use one of greatest brute force tool or You might found some password but in those two scenario, it always depends on websites.
 
-
 # **INSTALLATION**
 
 The installation of this tool is easy and you can install this tool in just three steps. 
@@ -21,7 +20,7 @@ git clone https://github.com/shivamksharma/DevBrute.git
 pip3 install -r setup.py
 
 # In Case, pip3 isn't installed on your system then install it first by typing :
-sudo apt-get install python3-pip
+sudo apt-get install
 ```
 
 ### 3. RUN DEVBRUTE
