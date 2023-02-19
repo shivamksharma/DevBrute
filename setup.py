@@ -1,15 +1,9 @@
-import os, math, sys
-from time import sleep
+import os
 from subprocess import call
 
 os.system("sudo apt install python3-pip && sudo apt install tor")
-os.system("pip3 install -u selenium")
-os.system("pip3 install -u pyvirtualdisplay")
-os.system("pip3 install -u pysocks")
-os.system("pip3 install -u mechanize")
-os.system("pip3 install -u xvfb")
-os.system("pip3 install -u argparse")
-os.system("pip3 install -u requests")
+os.system("sudo pip3 install -U selenium pyvirtualdisplay pysocks mechanize xvfb argparse requests")
+
 
 os.system('firefox -v > tmp')
 result = open('tmp', 'r').read()
