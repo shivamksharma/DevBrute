@@ -1,6 +1,6 @@
 # **DevBrute - A Password Brute Forcer**
 
-### VERSION 1.01
+### VERSION 1.0
 
 ## Introduction
 
