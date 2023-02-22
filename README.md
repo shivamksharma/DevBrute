@@ -1,4 +1,4 @@
-# **DevBrute - A Password Brute Forcer**
+# **DevBrute** - **A Password Brute Forcer**
 
 ### VERSION 1.0
 
