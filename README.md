@@ -23,7 +23,7 @@ python3 setup.py
 
 ### 3. RUN DEVBRUTE
 ```
-python3 devbrute.py -s -username -w /usr/share/wordlists/passwords.txt
+python3 devbrute.py -s {website} -u {username} -w {wordlist}
 ```
 
 ### FIXES
