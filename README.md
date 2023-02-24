@@ -1,5 +1,6 @@
 # **DevBrute** - **A Password Brute Forcer**
-> **This project is no longer in development. If You want to contribute to this project then feel free to contribute to it by implementations.**
+> THIS PROGRAM IS NOT LONGER IN DEVELOPMENT
+
 
 ### VERSION 1.0
 
@@ -30,3 +31,6 @@ python3 devbrute.py -s {website} -u {username} -w {wordlist}
 	- Fixed some bugs
 	- Fixed Website URLS Error
 	- Fixed Wordlist Issue
+
+> Use this tool at your own risk which makes you accountable for your own actions if you use it for any questionable
+> purpose.
