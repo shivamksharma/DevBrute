@@ -1,6 +1,5 @@
 # **DevBrute** - **A Password Brute Forcer**
-> THIS PROGRAM IS NOT LONGER IN DEVELOPMENT
-
+> **THIS PROGRAM IS NOT LONGER IN DEVELOPMENT**
 
 ### VERSION 1.0
 
