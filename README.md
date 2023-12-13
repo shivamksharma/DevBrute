@@ -1,7 +1,6 @@
 # **DevBrute** - **A Password Brute Forcer Tool**
-[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)](https://github.com/shivamksharma/DevBrute/releases/tag/v1.0.0) 
 
-> **THIS PROGRAM IS NO LONGER IN DEVELOPMENT**
+[![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)](https://github.com/shivamksharma/DevBrute/releases/tag/v1.0.0)
 
 ## Introduction
 
