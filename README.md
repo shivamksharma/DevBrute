@@ -1,6 +1,7 @@
 # **DevBrute** - **A Password Brute Forcer Tool**
 
 [![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)](https://github.com/shivamksharma/DevBrute/releases/tag/v1.0.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **DevBrute** is powerful tool designed for developers to perform automated task like login attempts on various social media platforms.
 
@@ -97,9 +98,3 @@ Please ensure to follow the [Contribution Guidelines](CONTRIBUTING.md).
   - Added VPN support
 
 > **_DISCLAIMER_** - Please use this framework responsibly and ensure you have proper authorization before conducting any testing or automated interactions with websites. Unauthorized access or brute-forcing of accounts is against the terms of service of most websites and may be illegal in many jurisdictions. Use this tool at your own risk which makes you accountable for your own actions if you use it for any questionable purpose !
-
-### License
-
-This project is licensed under the [MIT License](LICENSE).
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
