@@ -2,9 +2,8 @@
 
 [![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)](https://github.com/shivamksharma/DevBrute/releases/tag/v1.0.0)
 
-## Introduction
-
 **DevBrute** is powerful tool designed for developers to perform automated task like login attempts on various social media platforms.
+
 **DevBrute** is my casual and random project in Infomation Security and it is a versatile BruteForce Framework that allows you to perform automated login attempts on various social media platforms. It incorporates several advanced features to enhance its effectiveness and minimize the risk of detection. Nowadays, Brute Forcing on any Web Applications is like wasting time because most web apps uses plethora of techniques to prevent brute forcing on their websites. You can notice a common technique on most websites which is **Locking Account**. You might use one of greatest brute force tool or You might found some password but in those two scenario, it always depends on websites.
 
 ## FEATURES
@@ -14,7 +13,7 @@
 - **Multi-threaded**: Execute tasks concurrently for faster results.
 - **Logging**: Detailed logs for monitoring and troubleshooting.
 
-# **INSTALLATION**
+## **INSTALLATION**
 
 The installation of this tool is easy and you can install this tool in just three steps.
 To install DevBrute, follow these steps:
@@ -66,7 +65,7 @@ python devbrute.py --target <target_IP> --port <port> --threads <num_threads> --
 python3 bruteforce.py -s facebook -u username -w wordlist.txt -d 2
 ```
 
-## CONTRUBUTING TO DEVBRUTE
+### CONTRUBUTING TO DEVBRUTE
 
 To contribute to DevBrute, follow these steps:
 
@@ -102,4 +101,5 @@ Please ensure to follow the [Contribution Guidelines](CONTRIBUTING.md).
 ### License
 
 This project is licensed under the [MIT License](LICENSE).
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
