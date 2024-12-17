@@ -8,102 +8,102 @@
         <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" />
     </a>  
     <a href="https://github.com/shivamksharma/terminal_portfolio/releases">
-        <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version" />
+        <img src="https://img.shields.io/badge/version0.0.0-blue.svg" alt="Version" />
     </a>
 </div>
 
-**DevBrute** is a versatile password brute-forcing tool aimed at automating login attempts across various social media platforms. Designed for developers, this tool explores advanced techniques to bypass security and minimize detection risks. While web application defenses have evolved, DevBrute adapts to challenges like account locking and other preventative measures.
+**DevBrute** is a powerful and versatile tool designed for developers to perform automated login attempts on various social media platforms. It is a casual and random project in the field of Information Security, offering a robust framework for brute-forcing with advanced features to minimize detection risks.
 
----
+In today's web applications, brute-forcing is often inefficient due to modern security measures like **Account Locking**. While tools like DevBrute can help uncover passwords, the success of such attempts heavily depends on the target website's security mechanisms.
 
-## **FEATURES**
+## **Key Features**
 
-- **Brute Force**: Executes powerful brute-force attacks.  
-- **Customization**: Flexible settings for tailored usage.  
-- **Multi-threaded**: Faster execution with concurrent tasks.  
-- **Logging**: Generates detailed logs for easy debugging.
+- **Brute Force**: Advanced algorithms for efficient brute-force attacks.
+- **Customization**: Flexible parameters to adapt to specific use cases.
+- **Multi-threaded**: Concurrent execution for faster results.
+- **Logging**: Detailed logs for monitoring and debugging.
 
----
+## **Installation**
 
-## **INSTALLATION**
+Getting started with DevBrute is simple and can be done in just a few steps:
 
-### Step 1: Clone the Repository
+1. **Clone the Repository**
 
-```bash
-git clone https://github.com/shivamksharma/DevBrute.git
-```
+   ```bash
+   git clone https://github.com/shivamksharma/DevBrute.git
+   ```
 
-### Step 2: Install Dependencies
+2. **Navigate to the Directory**
 
-```bash
-cd DevBrute
-python3 setup.py
-```
+   ```bash
+   cd DevBrute
+   ```
 
-### Step 3: Run the Tool
+3. **Run the Setup File**
 
-```bash
-python3 devbrute.py [options]
-```
+   ```bash
+   python3 setup.py
+   ```
 
----
+4. **Run DevBrute**
 
-## **USAGE**
+   ```bash
+   python3 devbrute.py [options]
+   ```
 
-Customize your brute force attacks with various options:
+   Replace `[options]` with your desired configurations.
 
-- `--target`: Target IP address.  
-- `--port`: Target port number.  
-- `--threads`: Number of threads to use.
+### **Common Options**
 
-### Examples
+- `--target`: Specify the target IP address.
+- `--port`: Define the target port.
+- `--threads`: Set the number of threads for concurrent execution.
 
-- Basic Brute Force Attack:
+### **Example Usage**
 
-```bash
-python3 devbrute.py --target <target_IP> --port <port> --threads <num_threads>
-```
+- **Brute Force Attack**:
 
-- For Social Media (e.g., Facebook):
+  ```bash
+  python3 devbrute.py --target <target_IP> --port <port> --threads <num_threads>
+  ```
 
-```bash
-python3 devbrute.py -s facebook -u username -w wordlist.txt -d 2
-```
+- **Custom Configuration**:
 
----
+  ```bash
+  python3 devbrute.py -s facebook -u username -w wordlist.txt -d 2
+  ```
 
-## **CONTRIBUTING**
+## **Contributing**
 
-1. Fork the repository.  
-2. Create a new branch (`git checkout -b feature/awesome-feature`).  
-3. Make your changes.  
-4. Commit your changes (`git commit -am 'Add new feature'`).  
-5. Push to your branch (`git push origin feature/awesome-feature`).  
+We welcome contributions to DevBrute! To contribute, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/awesome-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/awesome-feature`).
 6. Create a pull request.
 
-See [Contribution Guidelines](CONTRIBUTING.md) for more details.
+Please ensure you follow the [Contribution Guidelines](CONTRIBUTING.md).
 
 ---
 
-## **FIXES**
+## **Recent Fixes**
 
-- URL parsing errors fixed.  
-- Wordlist processing issues addressed.  
-- Bugs in feature integration resolved.  
-- Enhanced handling of account locking scenarios.
+- Fixed Website URLs Error
+- Resolved Wordlist Issues
+- Addressed errors during feature additions
+- Improved handling of Account Locking
 
----
+## **Recent Updates**
 
-## **UPDATES**
-
-- Delays between password attempts added.  
-- Proxy and IP rotation capabilities integrated.  
-- Pattern avoidance logic implemented.  
-- VPN support for enhanced anonymity.
+- Added delays between password attempts.
+- Introduced Proxy and IP Rotation for enhanced anonymity.
+- Implemented Pattern Avoidance to reduce detection risks.
+- Added VPN support for secure operations.
 
 ---
 
-> **_DISCLAIMER_**  
-> Use responsibly and ensure proper authorization before using this tool. Unauthorized brute-forcing may be illegal and violates most websites' terms of service.
+> **Disclaimer**  
+> This tool is intended for ethical and authorized use only. Unauthorized access or brute-forcing of accounts is against the terms of service of most websites and may be illegal in many jurisdictions. Use this tool responsibly and at your own risk.
 
----
