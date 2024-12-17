@@ -1,5 +1,5 @@
 <div align="center">
-  <h2>DevBrute</h1>
+  <h1>DevBrute</h1>
   <p>A password brute-forcing tool !</p>
 </div>
 
