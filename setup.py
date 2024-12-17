@@ -8,8 +8,9 @@ os.system("pip3 install -U selenium pyvirtualdisplay pysocks mechanize xvfb argp
 # Check Firefox version and download corresponding geckodriver
 os.system('firefox -v > tmp')
 with open('tmp', 'r') as f:
-    marker = f.read().find('Firefox')+8
-    version = f.read()[marker:].splitlines()[0]
+    version_info = f.read()
+marker = version_info.find('Firefox') + 8
+version = version_info[marker:].splitlines()[0]
 os.remove('tmp')
 a, b, c = version.split('.')
 FirefoxVersion = int(a)
@@ -17,11 +18,9 @@ FirefoxVersion = int(a)
 if FirefoxVersion < 53:
     call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz"])
     os_bit = 64
-
 elif 53 <= FirefoxVersion <= 54:
     call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz"])
     os_bit = 64
-
 elif FirefoxVersion > 54:
     call(["wget", "https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz"])
     os_bit = 64
