@@ -1,11 +1,9 @@
 <div align="center">
-
 # **DevBrute**  
 **A Password Brute Forcer Tool**
 
 [![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)](https://github.com/shivamksharma/DevBrute/releases/tag/v1.0.0)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 </div>
 
 **DevBrute** is a versatile password brute-forcing tool aimed at automating login attempts across various social media platforms. Designed for developers, this tool explores advanced techniques to bypass security and minimize detection risks. While web application defenses have evolved, DevBrute adapts to challenges like account locking and other preventative measures.
