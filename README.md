@@ -37,7 +37,7 @@ git clone https://github.com/shivamksharma/DevBrute.git
 
 ```bash
 cd DevBrute
-python3 -m pip install -r requirements.txt
+python3 setup.py
 ```
 
 ### Step 3: Run the Tool
