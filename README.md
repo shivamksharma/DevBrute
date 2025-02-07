@@ -1,109 +1,177 @@
 <div align="center">
-  <h1>DevBrute</h1>
-  <p>A password brute-forcing tool !</p>
+  <pre>
+  ██████╗ ███████╗██╗   ██╗██████╗ ██████╗ ██╗   ██╗████████╗███████╗
+  ██╔══██╗██╔════╝██║   ██║██╔══██╗██╔══██╗██║   ██║╚══██╔══╝██╔════╝
+  ██║  ██║█████╗  ██║   ██║██████╔╝██████╔╝██║   ██║   ██║   █████╗  
+  ██║  ██║██╔══╝  ╚██╗ ██╔╝██╔══██╗██╔══██╗██║   ██║   ██║   ██╔══╝  
+  ██████╔╝███████╗ ╚████╔╝ ██████╔╝██║  ██║╚██████╔╝   ██║   ███████╗
+  ╚═════╝ ╚══════╝  ╚═══╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚══════╝
+  </pre>
+  <strong>Advanced Web Application Authentication Testing Framework</strong>
 </div>
 
 <div align="center">
-    <a href="https://github.com/shivamksharma/terminal_portfolio/blob/main/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" />
-    </a>  
-    <a href="https://github.com/shivamksharma/terminal_portfolio/releases">
-        <img src="https://img.shields.io/badge/version0.0.0-blue.svg" alt="Version" />
+    <a href="https://github.com/shivamksharma/DevBrute/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/License-MIT-red.svg" alt="License" />
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Platform-Linux-blue.svg" alt="Platform" />
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Python-3.x-yellow.svg" alt="Python" />
+    </a>
+    <a href="#">
+        <img src="https://img.shields.io/badge/Version-2.0.0-green.svg" alt="Version" />
     </a>
 </div>
 
-**DevBrute** is a powerful and versatile tool designed for developers to perform automated login attempts on various social media platforms. It is a casual and random project in the field of Information Security, offering a robust framework for brute-forcing with advanced features to minimize detection risks.
+## 🎯 Overview
 
-In today's web applications, brute-forcing is often inefficient due to modern security measures like **Account Locking**. While tools like DevBrute can help uncover passwords, the success of such attempts heavily depends on the target website's security mechanisms.
+**DevBrute** is an advanced penetration testing framework designed for security professionals to assess web application authentication mechanisms. Built with a focus on stealth and efficiency, it provides comprehensive authentication testing capabilities while implementing various evasion techniques.
 
-## **Key Features**
+## ⚡ Features
 
-- **Brute Force**: Advanced algorithms for efficient brute-force attacks.
-- **Customization**: Flexible parameters to adapt to specific use cases.
-- **Multi-threaded**: Concurrent execution for faster results.
-- **Logging**: Detailed logs for monitoring and debugging.
+- 🔒 **Authentication Testing**
+  - Multiple authentication scheme support
+  - Custom form parameter detection
+  - Response pattern analysis
+  - Session management testing
 
-## **Installation**
+- 🛡️ **Security Features**
+  - Proxy chain rotation
+  - Rate limiting controls
+  - Pattern-based attempt distribution
+  - User agent randomization
 
-Getting started with DevBrute is simple and can be done in just a few steps:
+- 🔍 **Analysis Capabilities**
+  - Real-time response analysis
+  - HTTP status code monitoring
+  - Response size comparison
+  - Redirect chain tracking
 
-1. **Clone the Repository**
+- 🌐 **Platform Support**
+  - Custom web applications
+  - Major social platforms
+  - RESTful APIs
+  - OAuth implementations
 
-   ```bash
-   git clone https://github.com/shivamksharma/DevBrute.git
-   ```
+## 🚀 Installation
 
-2. **Navigate to the Directory**
+```bash
+# Clone the repository
+git clone https://github.com/shivamksharma/DevBrute.git
 
-   ```bash
-   cd DevBrute
-   ```
+# Navigate to directory
+cd DevBrute
 
-3. **Run the Setup File**
+# Install dependencies
+sudo python3 setup.py
+```
 
-   ```bash
-   python3 setup.py
-   ```
+## 💻 Usage
 
-4. **Run DevBrute**
+```bash
+# Basic syntax
+python3 devbrute.py -s <service/url> -u <username> -w <wordlist> -d <delay> [-v]
 
-   ```bash
-   python3 devbrute.py [options]
-   ```
+# Test custom web application
+python3 devbrute.py -s https://target.com/login -u admin -w wordlist.txt -d 2
 
-   Replace `[options]` with your desired configurations.
+# Test with verbose output
+python3 devbrute.py -s instagram -u target_user -w wordlist.txt -d 1 -v
+```
 
-### **Common Options**
+## 🛠️ Configuration
 
-- `--target`: Specify the target IP address.
-- `--port`: Define the target port.
-- `--threads`: Set the number of threads for concurrent execution.
+```bash
+# Parameters
+-s, --service    : Target service or URL
+-u, --username   : Target username
+-w, --wordlist   : Path to wordlist
+-d, --delay      : Delay between attempts
+-v, --verbose    : Enable detailed output
+```
 
-### **Example Usage**
+## 🔧 Advanced Features
 
-- **Brute Force Attack**:
-
+- **Proxy Configuration**
   ```bash
-  python3 devbrute.py --target <target_IP> --port <port> --threads <num_threads>
+  # Edit proxychains configuration
+  sudo nano /etc/proxychains4.conf
+  
+  # Add custom proxies
+  socks5 127.0.0.1 9050
+  http 192.168.1.1 8080
   ```
 
-- **Custom Configuration**:
-
-  ```bash
-  python3 devbrute.py -s facebook -u username -w wordlist.txt -d 2
+- **Custom Headers**
+  ```python
+  # Edit headers in config.py
+  headers = {
+      'User-Agent': 'Custom User Agent',
+      'X-Forwarded-For': '127.0.0.1'
+  }
   ```
 
-## **Contributing**
+## 🔍 Response Analysis
 
-We welcome contributions to DevBrute! To contribute, follow these steps:
+```plaintext
+[*] Try 45/1000 | testing123
+[403] | Size: 1234 | Invalid credentials
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/awesome-feature`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to the branch (`git push origin feature/awesome-feature`).
-6. Create a pull request.
+[*] Try 46/1000 | password123
+[302] | Size: 5678 | Redirect → /dashboard | Possible success
+```
 
-Please ensure you follow the [Contribution Guidelines](CONTRIBUTING.md).
+## ⚠️ Legal Disclaimer
+
+This tool is provided for educational and ethical penetration testing purposes only. Users must:
+
+1. Obtain explicit permission before testing any system
+2. Comply with all applicable laws and regulations
+3. Use responsibly and ethically
+4. Not use for unauthorized access attempts
+
+## 🤝 Contributing
+
+We welcome contributions from the security community. Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
+
+## 📜 License
+
+DevBrute is released under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🔗 Contact
+
+- Report bugs: [Issue Tracker](https://github.com/shivamksharma/DevBrute/issues)
+- Follow updates: [@DevBrute](https://twitter.com/devbrute)
+- Professional inquiries: security@devbrute.com
 
 ---
 
-## **Recent Fixes**
+<div align="center">
+  <strong>Built with ❤️ by Security Researchers for Security Researchers</strong>
+</div>
 
-- Fixed Website URLs Error
-- Resolved Wordlist Issues
-- Addressed errors during feature additions
-- Improved handling of Account Locking
+## 💻 Usage Example
 
-## **Recent Updates**
+```bash
+python3 devbrute.py -s instagram -u testuser -w passwords.txt -d 1
+```
 
-- Added delays between password attempts.
-- Introduced Proxy and IP Rotation for enhanced anonymity.
-- Implemented Pattern Avoidance to reduce detection risks.
-- Added VPN support for secure operations.
+Sample Output:
+```
+[✓] HTTP 200 | Password: correctpass | Size: 2,358 bytes
+[✗] HTTP 403 | Password: wrongpass | Size: 1,024 bytes
+[•] HTTP 404 | Password: test123 | Size: 98 bytes
+```
 
----
+Key changes made:
+1. Improved output formatting with consistent status indicators
+2. Added HTTP status code for every attempt
+3. Removed unnecessary system dependencies from setup
+4. Fixed proxy rotation error handling
+5. Simplified installation process
+6. Updated documentation with new output format
 
-> **Disclaimer**  
-> This tool is intended for ethical and authorized use only. Unauthorized access or brute-forcing of accounts is against the terms of service of most websites and may be illegal in many jurisdictions. Use this tool responsibly and at your own risk.
+The code now provides clearer feedback for each attempt and handles errors more gracefully while maintaining the core functionality.
 

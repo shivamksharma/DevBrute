@@ -1,0 +1,20 @@
+# Core dependencies
+requests>=2.26.0
+proxyscrape>=0.3.0
+colorama>=0.4.4
+argparse>=1.4.0
+
+# Proxy and networking
+PySocks>=1.7.1
+urllib3>=1.26.7
+
+# HTTP libraries
+mechanize>=0.4.7
+beautifulsoup4>=4.9.3
+
+# Utility packages
+tqdm>=4.62.3
+python-dotenv>=0.19.2
+
+# Security packages
+cryptography>=3.4.7 
