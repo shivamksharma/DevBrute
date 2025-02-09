@@ -1,6 +1,6 @@
 <div align="center">
   <h1>DevBrute</h1>
-  <p>A password brute-forcing tool !</p>
+  <p>A password brute-forcing tool for developers</p>
 </div>
 
 <div align="center">
