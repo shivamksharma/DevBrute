@@ -149,7 +149,7 @@ DevBrute is released under the MIT License. See the [LICENSE](LICENSE) file for 
 ---
 
 <div align="center">
-  <strong>Built with ❤️ by Security Researchers for Security Researchers</strong>
+  <strong>© 2022 DevBrute</strong>
 </div>
 
 ## 💻 Usage Example
