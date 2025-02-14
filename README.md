@@ -81,6 +81,27 @@ python3 devbrute.py -s https://target.com/login -u admin -w wordlist.txt -d 2
 python3 devbrute.py -s instagram -u target_user -w wordlist.txt -d 1 -v
 ```
 
+## 💻 Usage Example
+
+```bash
+python3 devbrute.py -s instagram -u testuser -w passwords.txt -d 1
+```
+
+Sample Output:
+```
+[✓] HTTP 200 | Password: correctpass | Size: 2,358 bytes
+[✗] HTTP 403 | Password: wrongpass | Size: 1,024 bytes
+[•] HTTP 404 | Password: test123 | Size: 98 bytes
+```
+
+Key changes made:
+1. Improved output formatting with consistent status indicators
+2. Added HTTP status code for every attempt
+3. Removed unnecessary system dependencies from setup
+4. Fixed proxy rotation error handling
+5. Simplified installation process
+6. Updated documentation with new output format
+
 ## 🛠️ Configuration
 
 ```bash
@@ -152,26 +173,4 @@ DevBrute is released under the MIT License. See the [LICENSE](LICENSE) file for 
   <strong>© 2022 DevBrute</strong>
 </div>
 
-## 💻 Usage Example
-
-```bash
-python3 devbrute.py -s instagram -u testuser -w passwords.txt -d 1
-```
-
-Sample Output:
-```
-[✓] HTTP 200 | Password: correctpass | Size: 2,358 bytes
-[✗] HTTP 403 | Password: wrongpass | Size: 1,024 bytes
-[•] HTTP 404 | Password: test123 | Size: 98 bytes
-```
-
-Key changes made:
-1. Improved output formatting with consistent status indicators
-2. Added HTTP status code for every attempt
-3. Removed unnecessary system dependencies from setup
-4. Fixed proxy rotation error handling
-5. Simplified installation process
-6. Updated documentation with new output format
-
-The code now provides clearer feedback for each attempt and handles errors more gracefully while maintaining the core functionality.
 
