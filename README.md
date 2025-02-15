@@ -164,8 +164,6 @@ DevBrute is released under the MIT License. See the [LICENSE](LICENSE) file for 
 ## 🔗 Contact
 
 - Report bugs: [Issue Tracker](https://github.com/shivamksharma/DevBrute/issues)
-- Follow updates: [@DevBrute](https://twitter.com/devbrute)
-- Professional inquiries: security@devbrute.com
 
 ---
 
